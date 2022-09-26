@@ -1,0 +1,26 @@
+{
+  "name": "cursocypressubp",
+  "version": "1.0.0",
+  "description": "CursoCypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MariDugarte/Curso-de-Cypress.git"
+  },
+  "keywords": [
+    "Curso",
+    "test"
+  ],
+  "author": "Mari Dugarte",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MariDugarte/Curso-de-Cypress/issues"
+  },
+  "homepage": "https://github.com/MariDugarte/Curso-de-Cypress#readme",
+  "dependencies": {
+    "cypress": "^9.7.0"
+  }
+}
