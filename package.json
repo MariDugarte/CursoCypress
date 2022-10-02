@@ -4,7 +4,14 @@
   "description": "CursoCypress",
   "main": "index.js",
   "scripts": {
-    "test": "open"
+    "cypress:run:regressions:test": "npx cypress run -e baseUrl=https://automationteststore.com/ -s cypress/integration/*.spec.js",
+    "cypress:run:regressions:test:mobile": "npx cypress run -c viewportWidth=375,viewportHeight=667,userAgent=\"Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X)\" -e baseUrl=https://automationteststore.com/ -s cypress/integration/*.spec.js",
+    "cypress:run:regressions:desa": "npx cypress run -e baseUrl=https://automationteststore.com/ -s cypress/integration/*.spec.js",
+    "cypress:run:regressions:desa:mobile": "npx cypress run -c viewportWidth=375,viewportHeight=667,userAgent=\"Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X)\" -e baseUrl=https://automationteststore.com/ -s cypress/integration/*.spec.js",
+    "cypress:run:smoke:test": "npx cypress run -e baseUrl=https://automationteststore.com/ -s cypress/integration/login.spec.js",
+    "cypress:run:smoke:test:mobile": "npx cypress run -c viewportWidth=375,viewportHeight=667,userAgent=\"Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X)\" -e baseUrl=https://automationteststore.com/ -s cypress/integration/login.spec.js",
+    "cypress:run:smoke:desa": "npx cypress run -e baseUrl=https://automationteststore.com/ -s cypress/integration/login.spec.js",
+    "cypress:run:smoke:desa:mobile": "npx cypress run -c viewportWidth=375,viewportHeight=667,userAgent=\"Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X)\" -e baseUrl=https://automationteststore.com/ -s cypress/integration/login.spec.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +28,9 @@
   },
   "homepage": "https://github.com/MariDugarte/Curso-de-Cypress#readme",
   "dependencies": {
-    "cypress": "^9.7.0"
+    "ajv": "^8.11.0",
+    "cypress": "^9.7.0",
+    "cypress-mochawesome-reporter": "^3.2.2",
+    "mochawesome": "^7.1.3"
   }
 }

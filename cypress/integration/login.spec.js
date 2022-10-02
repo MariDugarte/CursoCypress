@@ -89,7 +89,7 @@ it('New address', () => {
 
 })
 
-it.only('New address Fail', () => {
+it('New address Fail', () => {
   const header = new HeaderPage;
   const login = new LoginPage;
   const account = new Account;
