@@ -4,6 +4,7 @@ import menuOptions from "../fixtures/menu.json";
 
 describe("Main menu", () => {
   beforeEach(() => {
+    cy.viewport('iphone-se2')
     cy.visit("https://automationteststore.com/");
   });
 

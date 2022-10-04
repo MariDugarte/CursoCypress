@@ -24,3 +24,7 @@ module.exports = (on, config) => {
 module.exports = (on, config) => {
   require('cypress-mochawesome-reporter/plugin')(on);
 };
+
+module.exports = (on, config) => {
+  require('cypress-grep/src/plugin')(config)
+}

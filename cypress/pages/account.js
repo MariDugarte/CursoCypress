@@ -1,6 +1,6 @@
 class accountLocators {
 constructor () {
-    this.manageAccountBtn = '.nav-dash > li:nth-of-type(3) > a';
+    this.manageAddressBookBtn = '.nav-dash > li:nth-of-type(3) > a';
     this.addNewAddress = 'a[title="New Address"]';
     this.inputFirstName = '#AddressFrm_firstname';
     this.inputLastName = '#AddressFrm_lastname';
@@ -22,8 +22,8 @@ export default class Account {
         this.locators = new accountLocators();
     }
 
-getManageAccountBtn () {
-    return cy.get(this.locators.manageAccountBtn);
+getManageAddressBookBtn () {
+    return cy.get(this.locators.manageAddressBookBtn);
 }
 
 getAddNewAddress () {

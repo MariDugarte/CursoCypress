@@ -1,7 +1,10 @@
 class headerLocators {
     constructor () {
         //Blue Bar
+
 this.LoginRegisterBtn = 'ul#customer_menu_top  a';
+this.OptionsBtnMobile = '.collapsed.navbar-toggle';
+this.mainMenuMobile = 'div#topnav > .form-control';
 this.HomeBtn = '.logo > img[alt="Automation Test Store"]';
 this.SPECIALS_Btn = 'ul#main_menu_top  .menu_specials.top > .menu_text';
 this.ACCOUNT_Btn = 'ul#main_menu_top  .menu_specials.top > .menu_text';
@@ -37,6 +40,14 @@ export default class Header{
 getLoginRegisterButon (){
 return cy.get(this.locators.LoginRegisterBtn);
     }
+
+getOptionsBtnMobile (){
+      return cy.get(this.locators.OptionsBtnMobile);
+          }
+
+getMainMenuMobile (){
+            return cy.get(this.locators.mainMenuMobile);
+                }
 
  getSearchInput (){
 return cy.get(this.locators.inputSearch);

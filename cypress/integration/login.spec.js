@@ -7,12 +7,20 @@ import Account from '../pages/account';
 
 describe('example to-do app', () => {
   beforeEach(() => {
+     //cy.viewport('iphone-se2')
     cy.visit('https://automationteststore.com/')
   })
 
   it('Login Fail - Wrong user & pass', () => {
    const header = new HeaderPage;
    const login = new LoginPage;
+
+if(Cypress.config("viewportWidth")<700) {
+
+  header.getOptionsBtnMobile().click();
+  header.getMainMenuMobile().select('Login');
+
+} else
 
    header.getLoginRegisterButon().click();
 
@@ -28,6 +36,13 @@ describe('example to-do app', () => {
     const header = new HeaderPage();
     const login = new LoginPage();
 
+    if(Cypress.config("viewportWidth")<700) {
+
+      header.getOptionsBtnMobile().click();
+      header.getMainMenuMobile().select('Login');
+    
+    } else
+
     header.getLoginRegisterButon().click();
     login.getUserInput().should("have.css", "border-bottom-left-radius", "0px");
   });
@@ -37,6 +52,13 @@ describe('example to-do app', () => {
     const header = new HeaderPage;
     const login = new LoginPage;
     const home = new HomePage;
+
+    if(Cypress.config("viewportWidth")<700) {
+
+      header.getOptionsBtnMobile().click();
+      header.getMainMenuMobile().select('Login');
+    
+    } else
  
     header.getLoginRegisterButon().click();
  
@@ -53,6 +75,13 @@ it('Login OK', () => {
   const header = new HeaderPage;
   const login = new LoginPage;
 
+  if(Cypress.config("viewportWidth")<700) {
+
+    header.getOptionsBtnMobile().click();
+    header.getMainMenuMobile().select('Login');
+  
+  } else
+
   header.getLoginRegisterButon().click();
 
   login.getUserInput().type(Data.users[0].user);
@@ -66,13 +95,20 @@ it('New address', () => {
   const login = new LoginPage;
   const account = new Account;
 
+  if(Cypress.config("viewportWidth")<700) {
+
+    header.getOptionsBtnMobile().click();
+    header.getMainMenuMobile().select('Login');
+  
+  } else
+
   header.getLoginRegisterButon().click();
 
   login.getUserInput().type(Data.users[1].user);
   login.getPassInput().type(Data.users[1].password);
   login.getLoginBtn().click();
 
-  account.getManageAccountBtn().click();
+  account.getManageAddressBookBtn().click();
   account.getAddNewAddress().click();
 
   account.getInputFirstName().type('Marieliany');
@@ -94,13 +130,20 @@ it('New address Fail', () => {
   const login = new LoginPage;
   const account = new Account;
 
+  if(Cypress.config("viewportWidth")<700) {
+
+    header.getOptionsBtnMobile().click();
+    header.getMainMenuMobile().select('Login');
+  
+  } else
+
   header.getLoginRegisterButon().click();
 
   login.getUserInput().type(Data.users[1].user);
   login.getPassInput().type(Data.users[1].password);
   login.getLoginBtn().click();
 
-  account.getManageAccountBtn().click();
+  account.getManageAddressBookBtn().click();
   account.getAddNewAddress().click();
 
   account.getContinueBtn().click();
