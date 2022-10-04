@@ -26,6 +26,7 @@
 
 const Ajv = require("ajv")
 const ajv = new Ajv();
+require('cypress-grep')();
 
 /**
  * llama al servicio acorde al primer parametro enviado
