@@ -8,7 +8,7 @@ describe("Main menu", () => {
     cy.visit("https://automationteststore.com/");
   });
 
-  it("Menu - Using Array", () => {
+  it("Menu - Using Array", { tags: "@regression"}, () => {
     const header = new HeaderPage();
 
     const buttons = [
@@ -27,7 +27,7 @@ describe("Main menu", () => {
     }
   });
 
-  it("Menu - Obtain TEXT of each item of menu", () => {
+  it("Menu - Obtain TEXT of each item of menu", { tags: "@regression"}, () => {
     const header = new HeaderPage();
     let menuOp;
 
@@ -42,7 +42,7 @@ describe("Main menu", () => {
     }
   });
 
-  it("Menu - Using Fixture (With objects)", () => {
+  it("Menu - Using Fixture (With objects)", { tags: "@regression"}, () => {
     const header = new HeaderPage();
 
     Object.entries(menuOptions).forEach(([key, value], $index) => {

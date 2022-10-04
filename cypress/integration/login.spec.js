@@ -11,7 +11,7 @@ describe('example to-do app', () => {
     cy.visit('https://automationteststore.com/')
   })
 
-  it('Login Fail - Wrong user & pass', () => {
+  it('Login Fail - Wrong user & pass', { tags: ["@smoke", "@regression"]}, () => {
    const header = new HeaderPage;
    const login = new LoginPage;
 
@@ -32,7 +32,7 @@ if(Cypress.config("viewportWidth")<700) {
 
   });
 
-  it("Visual testing de Login", () => {
+  it("Visual testing de Login", { tags: ["@smoke", "@regression"]}, () => {
     const header = new HeaderPage();
     const login = new LoginPage();
 
@@ -48,7 +48,7 @@ if(Cypress.config("viewportWidth")<700) {
   });
 
 
-  it('Login Mari', () => {
+  it('Login OK Mari', { tags: ["@smoke", "@regression"]}, () => {
     const header = new HeaderPage;
     const login = new LoginPage;
     const home = new HomePage;
@@ -71,7 +71,7 @@ if(Cypress.config("viewportWidth")<700) {
 
 })
 
-it('Login OK', () => {
+it('Login OK con data json', { tags: ["@smoke", "@regression"]}, () => {
   const header = new HeaderPage;
   const login = new LoginPage;
 

@@ -2,7 +2,7 @@
 import EdenPage from "../pages/eden.js";
 
 describe("Test de Servicios", () => {
-  it("GET action in Eden entradas", () => {
+  it("GET action in Eden entradas", { tags: "@regression"}, () => {
     //Call service
     cy.request({
       method: "GET",
@@ -14,7 +14,7 @@ describe("Test de Servicios", () => {
     });
   });
 
-  it("Check UI", () => {
+  it("Check UI", { tags: "@regression"}, () => {
     cy.visit("https://www.edenentradas.com.ar/sitio/contenido/inicio");
     const eden = new EdenPage();
 

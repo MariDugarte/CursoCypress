@@ -6,7 +6,7 @@ describe("Test de Página Eden", () => {
     cy.callService("inicio", "espectaculos");
   });
 
-  it("Llamada a servicio: /puntosdeventas", { tags: "@regression"}, () => {
+  it("Llamada a servicio: /puntosdeventas", { tags: ["@smoke", "@regression"]}, () => {
     cy.callService(
       "puntosdeventas",
       "puntosdeventas",
