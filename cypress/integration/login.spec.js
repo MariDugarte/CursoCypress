@@ -1,9 +1,10 @@
 /// <reference types="cypress" />
 import HeaderPage from '../pages/header';
 import LoginPage from '../pages/login';
-import HomePage from '../pages/home';
+import AddressPage from '../pages/address';
+import LogoutPage from '../pages/logout';
 import Data from '../fixtures/users.json';
-import Account from '../pages/account';
+import AccountPage from '../pages/account';
 
 describe('example to-do app', () => {
   beforeEach(() => {
@@ -51,7 +52,7 @@ if(Cypress.config("viewportWidth")<700) {
   it('Login OK Mari', { tags: ["@smoke", "@regression"]}, () => {
     const header = new HeaderPage;
     const login = new LoginPage;
-    const home = new HomePage;
+    const account = new AccountPage;
 
     if(Cypress.config("viewportWidth")<700) {
 
@@ -66,8 +67,12 @@ if(Cypress.config("viewportWidth")<700) {
     login.getPassInput().type('automation');
     login.getLoginBtn().click();
 
-    home.getUserName().should("contain.text", "Mari");
-    home.getUserName2().should("contain.text", "Mari");
+    if(Cypress.config("viewportWidth")>700) {
+
+      account.getUserName().should("contain.text", "Mari");
+      account.getUserName2().should("contain.text", "Mari");
+    
+    }
 
 })
 
@@ -90,10 +95,36 @@ it('Login OK con data json', { tags: ["@smoke", "@regression"]}, () => {
 
 })
 
+it('Login and Logout', { tags: ["@smoke", "@regression"]}, () => {
+  const header = new HeaderPage;
+  const login = new LoginPage;
+  const account = new AccountPage;
+  const logout = new LogoutPage;
+
+  if(Cypress.config("viewportWidth")<700) {
+
+    header.getOptionsBtnMobile().click();
+    header.getMainMenuMobile().select('Login');
+  
+  } else
+
+  header.getLoginRegisterButon().click();
+
+  login.getUserInput().type(Data.users[1].user);
+  login.getPassInput().type(Data.users[1].password);
+  login.getLoginBtn().click();
+
+  account.getLogoutBtn().click(); 
+
+  logout.getLogoutText().should("contain.text", " Account Logout");
+  
+})
+
 it('New address', () => {
   const header = new HeaderPage;
   const login = new LoginPage;
-  const account = new Account;
+  const account = new AccountPage;
+  const address = new AddressPage;
 
   if(Cypress.config("viewportWidth")<700) {
 
@@ -109,26 +140,27 @@ it('New address', () => {
   login.getLoginBtn().click();
 
   account.getManageAddressBookBtn().click();
-  account.getAddNewAddress().click();
+  address.getAddNewAddress().click();
 
-  account.getInputFirstName().type('Marieliany');
-  account.getInputLastName().type('Dugarte');
-  account.getInputAddress1().type('Estomba 3715');
-  account.getInputCity().type('Cordoba');
-  account.getSelectCountry().select('Argentina');
-  account.getSelectRegionState().select('Cordoba');
-  account.getInputZipPostCode().type('1023');
-  account.getOptionDefaultAddressNo().click();
-  account.getContinueBtn().click();
+  address.getInputFirstName().type('Marieliany');
+  address.getInputLastName().type('Dugarte');
+  address.getInputAddress1().type('Estomba 3715');
+  address.getInputCity().type('Cordoba');
+  address.getSelectCountry().select('Argentina');
+  address.getSelectRegionState().select('Cordoba');
+  address.getInputZipPostCode().type('1023');
+  address.getOptionDefaultAddressNo().click();
+  address.getContinueBtn().click();
 
-  account.getInsertedOkBox().should("contain.text", "Your address has been successfully inserted");
+  address.getInsertedOkBox().should("contain.text", "Your address has been successfully inserted");
 
 })
 
 it('New address Fail', () => {
   const header = new HeaderPage;
   const login = new LoginPage;
-  const account = new Account;
+  const account = new AccountPage;
+  const address = new AddressPage;
 
   if(Cypress.config("viewportWidth")<700) {
 
@@ -144,11 +176,11 @@ it('New address Fail', () => {
   login.getLoginBtn().click();
 
   account.getManageAddressBookBtn().click();
-  account.getAddNewAddress().click();
+  address.getAddNewAddress().click();
 
-  account.getContinueBtn().click();
+  address.getContinueBtn().click();
 
-  account.getErrorBox().should("contain.text", "Oops, there is an error with information provided!");
+  address.getErrorBox().should("contain.text", "Oops, there is an error with information provided!");
 
 })
 

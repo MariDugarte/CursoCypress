@@ -1,7 +1,6 @@
 class HomeLocators {
 constructor () {
-    this.Name = '.subtext';
-    this.WelcomeBackAndName = '#customer_menu_top .menu_text';
+    this.welcomeMessage = 'div > h4';
 
 }
 }
@@ -11,12 +10,7 @@ export default class Home {
         this.locators = new HomeLocators();
     }
 
-getUserName () {
-    return cy.get(this.locators.Name);
-}
-
-getUserName2 () {
-    return cy.get(this.locators.WelcomeBackAndName);
-}
-
+    getWelcomeMessage () {
+        return cy.get(this.locators.welcomeMessage);
+    }
 }

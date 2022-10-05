@@ -1,19 +1,13 @@
 class accountLocators {
 constructor () {
     this.manageAddressBookBtn = '.nav-dash > li:nth-of-type(3) > a';
-    this.addNewAddress = 'a[title="New Address"]';
-    this.inputFirstName = '#AddressFrm_firstname';
-    this.inputLastName = '#AddressFrm_lastname';
-    this.inputAddress1 = 'input[name="address_1"]';
-    this.inputCity = '#AddressFrm_city';
-    this.selectRegionState = '#AddressFrm_zone_id'
-    this.inputZipPostCode = '#AddressFrm_postcode';
-    this.selectCountry = '#AddressFrm_country_id';
-    this.optionDefaultAddressNo = '[for="AddressFrm_default0"] [type]';
-    this.continueBtn = '[title="Continue"]';
-    this.insertedOkBox = '.alert-success';
-    this.errorBox = '.alert-danger';
-
+    this.Name = '.subtext';
+    this.WelcomeBackAndName = '#customer_menu_top .menu_text';
+    this.LogoutBtn = '.side_account_list > li:nth-of-type(10) > a';
+    this.boxManageAddressBook = '.dash-tile.dash-tile-ocean';
+    this.boxOrderHistory = '.dash-tile.dash-tile-flower';
+    this.boxDownloads = '.dash-tile.dash-tile-oil';
+    this.boxTransactionHistory = '.dash-tile.dash-tile-balloon';
     }
 }
 
@@ -26,60 +20,32 @@ getManageAddressBookBtn () {
     return cy.get(this.locators.manageAddressBookBtn);
 }
 
-getAddNewAddress () {
-    return cy.get(this.locators.addNewAddress);
+getUserName () {
+    return cy.get(this.locators.Name);
 }
 
-getInputFirstName () {
-    return cy.get(this.locators.inputFirstName);
+getUserName2 () {
+    return cy.get(this.locators.WelcomeBackAndName);
 }
 
-getInputLastName () {
-    return cy.get(this.locators.inputLastName);
+getLogoutBtn () {
+    return cy.get(this.locators.LogoutBtn);
 }
 
-getInputAddress1 () {
-    return cy.get(this.locators.inputAddress1);
+getBoxManageAddressBook () {
+    return cy.get(this.locators.boxManageAddressBook);
 }
 
-getInputCity() {
-    return cy.get(this.locators.inputCity);
+getBoxOrderHistory () {
+    return cy.get(this.locators.boxOrderHistory);
 }
 
-getSelectRegionState() {
-    return cy.get(this.locators.selectRegionState);
+getBoxDownloads () {
+    return cy.get(this.locators.boxDownloads);
 }
 
-getOptionCordoba () {
-    return cy.get(this.locators.optionCordoba);
+getBoxTransactionHistory () {
+    return cy.get(this.locators.boxTransactionHistory);
 }
 
-getInputZipPostCode () {
-    return cy.get(this.locators.inputZipPostCode);
-}
-
-getSelectCountry () {
-    return cy.get(this.locators.selectCountry);
-}
-
-getOptionArgentina () {
-    return cy.get(this.locators.optionArgentina);
-}
-
-getOptionDefaultAddressNo () {
-    return cy.get(this.locators.optionDefaultAddressNo);
-}
-
-getContinueBtn () {
-    return cy.get(this.locators.continueBtn);
-}
-
-getInsertedOkBox () {
-    return cy.get(this.locators.insertedOkBox);
-}
-
-getErrorBox () {
-    return cy.get(this.locators.errorBox);
-}
-
-}
+};
