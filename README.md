@@ -2,7 +2,8 @@
 
 # Comandos Utiles
 npx cypress open
-Para correr todos los test: cypress:run:regressions:test
+
+Para correr todos los test: npm run cypress:run:regressions:test
 
 # Páginas de pruebas:
  https://automationteststore.com/
